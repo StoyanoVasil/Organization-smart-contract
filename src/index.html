@@ -30,27 +30,26 @@
       <div class="row">
 
         <!-- Display polls -->
-        <div class="col-lg-8" id="polls">
+        <div class="col-lg-8">
           <div id="petTemplate" style="display: block;">
-            <div class="row">
+            <div class="row"  id="polls">
               
-              <div class="card col-lg-4">
+              <!-- <div class="card col-lg-4">
                 <div class="card-body">
                   <h3 class="text-center">Raise salary</h3>
                   <div class="btn-group" role="group" aria-label="Button group with nested dropdown">              
-                    <div class="btn-group" role="group">
-                      <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                      </button>
-                      <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                        <a class="dropdown-item" href="#">Dropdown link</a>
-                        <a class="dropdown-item" href="#">Dropdown link</a>
+                    <form onSubmit="" class="form-inline" role="group">
+                      <div class="form-group">
+                        <select class="form-control" id="option">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                        </select>
                       </div>
-                    </div>
-                    <button type="button" class="btn btn-success">Vote</button>
+                      <button type="submit" class="btn btn-success">Vote</button>
+                    </form>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
             </div>
           </div>
@@ -65,24 +64,24 @@
                 <input type="text" class="form-control" id="inputAddress" placeholder="Enter user address">
               </div>
               <div class="btn-group">
-                <button type="button" class="btn btn-primary">Add member</button>
-                <button type="button" class="btn btn-success">Add board member</button>
-                <button type="button" class="btn btn-danger">Remove board member</button>
+                <button type="button" onClick="App.addMember(); return false;" class="btn btn-primary">Add member</button>
+                <button type="button" onClick="App.addBoardMember(); return false;" class="btn btn-success">Add board member</button>
+                <button type="button" onClick="App.removeBoardMember(); return false;" class="btn btn-danger">Remove board member</button>
               </div>
             </form>
 
             <form style="margin-top: 20%">
-                <div class="form-group">
-                  <h5 for="pollTitle" class="text-center">Poll title</h5>
-                  <input type="text" class="form-control" id="pollTitle" placeholder="Enter poll title">
-                </div>
-                <div class="form-group">
-                  <h5 for="options" class="text-center">Options</h5>
-                  <input type="text" class="form-control" id="options" aria-describedby="optioinsHelp" placeholder="Enter options">
-                  <small id="optioinsHelp" class="form-text text-muted">Please write all the options separated by a coma without spaces</small>
-                </div>
-                <button type="button" class="btn btn-primary">Add poll</button>
-              </form>
+              <div class="form-group">
+                <h5 for="pollTitle" class="text-center">Poll title</h5>
+                <input type="text" class="form-control" id="pollTitle" placeholder="Enter poll title">
+              </div>
+              <div class="form-group">
+                <h5 for="options" class="text-center">Options</h5>
+                <input type="text" class="form-control" id="options" aria-describedby="optioinsHelp" placeholder="Enter options">
+                <small id="optioinsHelp" class="form-text text-muted">Please write all the options separated by a coma without spaces</small>
+              </div>
+              <button type="button" onClick="App.createPoll()" class="btn btn-primary">Add poll</button>
+            </form>
 
         </div>
       </div>
@@ -90,6 +89,7 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
