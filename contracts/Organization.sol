@@ -50,10 +50,10 @@ contract Organization is Ownable {
         pollsCount++;
     }
 
-    function addOptionToPoll(uint _id, string _name) public {
-        require(msg.sender == polls[_id].owner, "Only poll owner can add options");
-        pollOptions[_id][polls[_id].optionsCount] = Option(polls[_id].optionsCount, _name, 0);
-        polls[_id].optionsCount++;
+    function addOptionToPoll(uint _pollId, string _name) public {
+        require(msg.sender == polls[_pollId].owner, "Only poll owner can add options");
+        pollOptions[_pollId][polls[_pollId].optionsCount] = Option(polls[_pollId].optionsCount, _name, 0);
+        polls[_pollId].optionsCount++;
     }
 
     function vote(uint _pollId, uint _optionId) public onlyMembers {
@@ -63,9 +63,9 @@ contract Organization is Ownable {
         voted[msg.sender].push(_pollId);
     }
 
-    function hasVoted(address _sender, uint _id) private returns (bool) {
+    function hasVoted(address _sender, uint _pollId) private returns (bool) {
         for(uint i = 0; i < voted[_sender].length; i++) {
-            if(voted[_sender][i] == _id) {
+            if(voted[_sender][i] == _pollId) {
                 return true;
             }
         }
